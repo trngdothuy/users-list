@@ -10,7 +10,7 @@ function App() {
 
   // Fetch data 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/items')
+    fetch('http://13.51.170.36:8000/items')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response not ok');
