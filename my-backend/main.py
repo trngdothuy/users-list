@@ -18,13 +18,23 @@ app.add_middleware(
 
 # Create DynamoDB client
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-table = dynamodb.Table('test-111')
+try:
+    table = dynamodb.Table('test-111')
+    response = table.scan()
+    print("DynamoDB data:", response)
+except Exception as e:
+    print("Error connecting to DynamoDB:", e)
 
 
 # Data model
 class Item(BaseModel):
     name: str
     age: int
+    
+
+@app.get("/")
+def get_items():
+    return {"message": "Hello from backend"}
 
 
 # Add item to dynamodb
@@ -42,7 +52,6 @@ def add_item(item: Item):
 # Get all items
 @app.get("/items")
 def get_items():
-    response = table.scan()
     return {"items": response.get("Items", [])}
 
 # Delete item
