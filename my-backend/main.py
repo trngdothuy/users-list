@@ -10,7 +10,7 @@ app = FastAPI()
 # Enable CORS for FE
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], #Frontend URL
+    allow_origins=["http://aaatest098.s3-website.eu-north-1.amazonaws.com/"], #Frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
