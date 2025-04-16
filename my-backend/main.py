@@ -56,7 +56,7 @@ def get_items():
 
 # Delete item
 @app.delete("/delete/{item_id}")
-def delete_item(item_id: str):
+async def delete_item(item_id: str):
     table.delete_item(Key={'id': item_id})
     return {"message": "Item deleted"}
     

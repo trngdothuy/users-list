@@ -50,7 +50,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/delete/${id}`, {
+      const response = await fetch(`http://13.51.170.36:8000/delete/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
