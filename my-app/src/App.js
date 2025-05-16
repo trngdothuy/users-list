@@ -8,6 +8,8 @@ function App() {
   const [form, setForm] = useState({name: '', age: ''});
   const [error, setError] = useState(null);
 
+  // const link = 'http://16.171.242.187:8000'
+
   // Fetch data 
   useEffect(() => {
     fetch('http://16.171.242.187:8000/items') // link b-e
@@ -59,6 +61,7 @@ function App() {
 
       // Update FE list after deleting
       setData(data.filter(item => item.id !== id));
+      console.log("Item deleted")
     } catch (error) {
       console.error("Delete error:", error);
       setError("Could not delete item");

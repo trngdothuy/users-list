@@ -10,7 +10,7 @@ app = FastAPI()
 # Enable CORS for FE
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://aaatest098.s3-website.eu-north-1.amazonaws.com"], #Frontend URL
+    allow_origins=["*"], #Frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -47,16 +47,23 @@ def add_item(item: Item):
             'age': item.age
         }
     table.put_item(Item=new_item)
+    response = table.scan()
+    print("Add DynamoDB data:", response)
     return new_item
 
 # Get all items
 @app.get("/items")
 def get_items():
+    # print("items", response.get("Items", []))
+    response = table.scan()
+    print("Show DynamoDB data:", response)
     return {"items": response.get("Items", [])}
 
 # Delete item
 @app.delete("/delete/{item_id}")
 async def delete_item(item_id: str):
     table.delete_item(Key={'id': item_id})
+    response = table.scan()
+    print("Delete DynamoDB data:", response)
     return {"message": "Item deleted"}
     
