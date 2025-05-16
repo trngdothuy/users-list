@@ -48,7 +48,7 @@ aws s3 sync build/ s3://aaatest098
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install boto3 fastapi uvicorn
+pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
@@ -56,7 +56,7 @@ uvicorn main:app --reload
 
 1. SSH into your EC2 instance:
 ```bash
-ssh -i test1.pem ec2-user@51.21.130.251
+ssh -i test1.pem ec2-user@16.171.242.187
 ```
 
 2. Clone repo:
@@ -90,7 +90,7 @@ nohup uvicorn main:app --host 0.0.0.0 --port 8000 &
 
 ## Notes
 
-- Frontend fetches from: `http://51.21.130.251`
+- Frontend fetches from: `http://16.171.242.187`
 - Ensure EC2 security group allows port 8000 (custom TCP, source 0.0.0.0/0)
 - If backend updates, re-upload files or `git pull` on EC2
 - If port in use: `sudo lsof -i :8000` → kill the process

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://51.21.130.251:8000/items'; // URL of backend
+const API_BASE = 'http://16.171.242.187:8000/items'; // URL of backend
 
 export const fetchData = async () => {
     try {

@@ -10,7 +10,7 @@ function App() {
 
   // Fetch data 
   useEffect(() => {
-    fetch('http://51.21.130.251:8000/items')
+    fetch('http://16.171.242.187:8000/items') // link b-e
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response not ok');
@@ -34,7 +34,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://51.21.130.251:8000/add', {
+      const res = await fetch('http://16.171.242.187:8000/add', { // link b-e
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(form),
@@ -50,7 +50,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://51.21.130.251:8000/delete/${id}`, {
+      const response = await fetch(`http://16.171.242.187:8000/delete/${id}`, { // link b-e
         method: 'DELETE',
       });
       if (!response.ok) {
