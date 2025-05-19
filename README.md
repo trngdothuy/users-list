@@ -7,9 +7,12 @@ Result: http://aaatest098.s3-website.eu-north-1.amazonaws.com/
 ---
 
 ## 📁 Project Structure
+
+```bash
 react-python/ 
     ├── my-app/ # Frontend - React app 
     └── my-backend/ # Backend - FastAPI app
+```    
 
 ---
 
